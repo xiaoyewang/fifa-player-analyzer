@@ -16,6 +16,7 @@ A web application for analyzing FIFA player statistics with an AI-powered chat i
 - **Backend**: Node.js with Express
 - **Database**: SQLite for player data storage
 - **AI Integration**: Amazon Bedrock with Claude model
+- **Deployment**: AWS CDK with EC2 instance in us-east-1 region
 
 ## Local Development Setup
 
@@ -69,7 +70,22 @@ A web application for analyzing FIFA player statistics with an AI-powered chat i
 
 ## AWS Deployment
 
-This application can be deployed to AWS using the AWS CDK. See the [deployment guide](./deployment/README.md) for detailed instructions.
+This application can be deployed to AWS using the AWS CDK. The deployment will:
+
+1. Create an EC2 instance in the us-east-1 region (required for Bedrock access)
+2. Set up the necessary security groups and IAM roles
+3. Install and configure the application on the EC2 instance
+4. Set up a reverse proxy with Nginx to serve the application
+
+For detailed deployment instructions, see the [deployment guide](./deployment/README.md).
+
+## CI/CD Pipeline
+
+The repository includes a GitHub Actions workflow configuration that automatically deploys changes to AWS when code is pushed to the main branch. This ensures that your application is always up-to-date with the latest changes.
+
+## Regional Considerations
+
+The AI chat feature uses Amazon Bedrock's Claude model, which is only available in certain AWS regions. The deployment is configured to use the us-east-1 region to ensure compatibility with Bedrock.
 
 ## License
 
