@@ -1,110 +1,76 @@
 # FIFA Player Analyzer
 
-A web application for analyzing FIFA player data, comparing players, and using natural language to search for players based on specific criteria.
+A web application for analyzing FIFA player statistics with an AI-powered chat interface.
 
 ## Features
 
-1. **Player Dashboard**
-   - View top players and their stats
-   - Search and filter players
-   - Interactive visualizations of player attributes
+- Browse and search FIFA player database
+- Compare player statistics
+- View detailed player information
+- AI-powered chat interface for natural language queries about players
+- Interactive data visualizations
 
-2. **Player Comparison**
-   - Compare two players side by side
-   - Radar charts for main attributes
-   - Detailed comparison of specific stats
-   - Find similar players based on selected attributes
+## Architecture
 
-3. **Natural Language Search**
-   - Chat interface powered by Amazon Bedrock's Claude model
-   - Ask questions about players in natural language
-   - Get SQL-based results for specific queries
-   - Interactive examples to get started
+- **Frontend**: React.js application
+- **Backend**: Node.js with Express
+- **Database**: SQLite for player data storage
+- **AI Integration**: Amazon Bedrock with Claude model
 
-4. **Player Details**
-   - Comprehensive view of player attributes
-   - Visual representation of stats
-   - Similar player recommendations
-
-## Tech Stack
-
-### Backend
-- Express.js
-- SQLite database
-- Amazon Bedrock (Claude model) for natural language processing
-- CSV parsing for data import
-
-### Frontend
-- React.js
-- Material-UI for components
-- Chart.js for data visualization
-- Axios for API requests
-
-## Setup Instructions
+## Local Development Setup
 
 ### Prerequisites
-- Node.js and npm installed
+
+- Node.js (v14+)
 - AWS account with access to Amazon Bedrock
-- AWS CLI configured with appropriate credentials
+- FIFA player statistics dataset (CSV format)
 
 ### Backend Setup
+
 1. Navigate to the backend directory:
-   ```
-   cd fifa-player-analyzer/backend
+   ```bash
+   cd backend
    ```
 
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
-3. Create a `.env` file with your AWS credentials:
+3. Create a `.env` file with the following content:
    ```
-   PORT=5000
+   PORT=5001
    AWS_REGION=us-east-1
-   # Add your AWS credentials if not using IAM roles
-   # AWS_ACCESS_KEY_ID=your_access_key
-   # AWS_SECRET_ACCESS_KEY=your_secret_key
    ```
 
 4. Start the backend server:
-   ```
-   npm start
+   ```bash
+   node server.js
    ```
 
 ### Frontend Setup
+
 1. Navigate to the frontend directory:
-   ```
-   cd fifa-player-analyzer/frontend
+   ```bash
+   cd frontend
    ```
 
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
 3. Start the frontend development server:
-   ```
+   ```bash
    npm start
    ```
 
 4. Open your browser and navigate to `http://localhost:3000`
 
-## Data Import
+## AWS Deployment
 
-The application automatically imports player data from the CSV file located at `/Users/wangxy/futbin-dump/output/player_stats.csv` when the server starts.
+This application can be deployed to AWS using the AWS CDK. See the [deployment guide](./deployment/README.md) for detailed instructions.
 
-## Using the Application
+## License
 
-1. **Dashboard**: Browse and search for players
-2. **Compare Players**: Select two players to compare their stats side by side
-3. **AI Chat**: Ask questions about players using natural language
-4. **Player Details**: Click on a player to view detailed information
-
-## Example Chat Queries
-
-- "Who are the top 5 players with the highest pace?"
-- "Find players similar to Mbappé"
-- "Show me the best defenders in the Premier League"
-- "Compare Messi and Ronaldo's stats"
-- "Find players with 5-star skills and at least 85 pace"
+MIT
