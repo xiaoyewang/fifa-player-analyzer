@@ -133,7 +133,7 @@ systemctl enable nginx
 # Clone the application repository
 mkdir -p /opt/fifa-player-analyzer
 cd /opt/fifa-player-analyzer
-git clone https://github.com/YOUR_GITHUB_USERNAME/fifa-player-analyzer.git .
+git clone https://github.com/xiaoyewang/fifa-player-analyzer.git .
 
 # Install backend dependencies
 cd /opt/fifa-player-analyzer/backend
